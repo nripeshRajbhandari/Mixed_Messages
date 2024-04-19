@@ -1,5 +1,10 @@
 console.log('THE PROJECT TO DISPLAY RANDOM MESSAGES (I CHOOSE TO DISPLAY FAVORITE QUOTES:)')
 
+//Generate Random Numbers for Indexing to the Random Quotes
+const generateRandomNumber = (quoteLength) => {
+    return (Math.floor(Math.random()*quoteLength));
+}
+
 // ADD THE RANDOM MESSAGES TO DISPLAY:
 //Inspiring quotes about Family, Friends and Work
 const familyQuotes = [
@@ -35,6 +40,40 @@ const inspiringQuotesObject = {
     Friends: friendsQuotes,
     Work: workQuotes
 };
+
+//Initialize an empty array Container to store random selected items
+const randomQuoteContainer = [];
+
+//Get Random Quotes from the Object:
+const generateRandomQuotes = ()=>{
+    for(quoteArray in inspiringQuotesObject){
+        const randomIndex = generateRandomNumber(inspiringQuotesObject[quoteArray].length);
+        console.log(quoteArray);
+        console.log(inspiringQuotesObject[quoteArray][randomIndex]);
+        randomQuoteContainer.push({[quoteArray] : inspiringQuotesObject[quoteArray][randomIndex]})
+        //randomObject = {quoteArray: quoteArray[randomIndex]}; 
+        //console.log(randomObject);
+        //randomQuoteContainer.push({quoteArray: quoteArray[randomIndex]});
+
+        // switch(quoteArray){
+        //     case "familyQuotes":
+        //         randomQuoteContainer.push({quoteArray:quoteArray[randomIndex]});
+        //         break;
+        //     case "friendsQuotes":
+        //         randomQuoteContainer.push({quoteArray:quoteArray})
+        //         break;
+        //     case "workQuotes":
+        //         randomQuoteContainer.push({quoteArray:quoteArray})
+        //         break;
+        // }
+    }
+
+    //Display random generated Quotes:
+}
+
+generateRandomQuotes();
+//console.log(generateRandomNumber(5));
+console.log(randomQuoteContainer);
 
 
 
